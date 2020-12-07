@@ -1,0 +1,56 @@
+<!-- header -->
+<div class="block">
+    <header class="header">
+        <a routerLink="" class="header-logo">My Movie DB</a>
+        <nav class="header-menu">
+            <a routerLink="/recherche">Recherche</a>
+            <a routerLink="/mon-compte">Mon compte</a>
+        </nav>
+    </header>
+</div>
+<!-- header -->
+
+<!-- banner -->
+<div class="block">
+    <div class="banner">
+        <img class="banner-image" src="assets/img/bg.jpg" alt="Image de projecteur">
+        <div class="banner-content">
+            <h1 class="title is-1">Bienvenue sur My Movie DB</h1>
+            <h2 class="subtitle">Retrouvez tous vos films préférés</h2>
+        </div>
+    </div>
+</div>
+<!-- banner -->
+<div *ngIf="movie" class="block">
+    <h2 class="subtitle heading-site">{{ movie.title }}</h2>
+    <hr>
+    <div class="container">
+        <div class="columns">
+            <div class="column text-center">
+                <img [src]="getMovieImageSrc('small')" [alt]="movie.title">
+            </div>
+            <div class="column">
+                <table class="table is-striped">
+                    <tbody>
+                        <tr>
+                            <th>Nom du film</th>
+                            <td>{{ movie.title }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nom original</th>
+                            <td>{{ movie['original_title'] }}</td>
+                        </tr>
+                        <tr>
+                            <th>Résumé</th>
+                            <td>{{ movie.overview }}</td>
+                        </tr>
+                        <tr>
+                            <th>Note</th>
+                            <td><span *ngFor="let stars of [].constructor(nbStars(movie.vote_average))">⭐&nbsp;</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

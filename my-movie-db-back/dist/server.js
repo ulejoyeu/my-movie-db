@@ -33,6 +33,11 @@ class Server {
                 res.send(trendingMovies);
             });
         });
+        app.get('/moviedb/movie/:id', (req, res) => {
+            MyMovieDb_1.MyMovieDb.getMovie(req.params.id, 'fr-FR').then(movie => {
+                res.send(movie);
+            });
+        });
         app.listen(this.port, () => {
             console.log("Server démarré");
         });

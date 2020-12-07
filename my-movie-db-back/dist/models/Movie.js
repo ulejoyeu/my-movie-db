@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 class Movie {
-    constructor(id_mdb, original_title, original_language, poster_path, title, overview, note_average, genres) {
+    constructor(id_mdb, original_title, original_language, poster_path, title, overview, vote_average, genres) {
         this.id = null;
         this.id_mdb = id_mdb;
         this.original_title = original_title;
@@ -9,7 +9,7 @@ class Movie {
         this.poster_path = poster_path;
         this.title = title;
         this.overview = overview;
-        this.note_average = note_average;
+        this.vote_average = vote_average;
         this.genres = genres;
     }
     // 4 possible input values: "small", "medium", "large", "full"

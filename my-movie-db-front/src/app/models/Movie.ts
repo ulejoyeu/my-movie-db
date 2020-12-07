@@ -6,10 +6,10 @@ export default class Movie {
     poster_path: string;
     title: string;
     overview: string;
-    note_average: number;
+    vote_average: number;
     genres: any;
 
-    constructor(id_mdb:number, original_title: string, original_language: string, poster_path: string, title: string, overview: string, note_average: number, genres: any) {
+    constructor(id_mdb:number, original_title: string, original_language: string, poster_path: string, title: string, overview: string, vote_average: number, genres: any) {
         this.id = null;
         this.id_mdb = id_mdb;
         this.original_title = original_title;
@@ -17,7 +17,7 @@ export default class Movie {
         this.poster_path = poster_path;
         this.title = title;
         this.overview = overview;
-        this.note_average = note_average;
+        this.vote_average = vote_average;
         this.genres = genres;
     }
 

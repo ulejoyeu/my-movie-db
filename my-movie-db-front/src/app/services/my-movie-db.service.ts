@@ -16,6 +16,10 @@ export class MyMovieDbService {
   getTrendingMovies(): Observable<any> {
     return this.httpClient.get(`${this.url}:${this.port}/moviedb/trending`);
   }
+  
+  getMovie(id: number): Observable<any> {
+    return this.httpClient.get(`${this.url}:${this.port}/moviedb/movie/${id}`);
+  }
 
   getMovieImageSrc(path: string, size: string) {
     let definition = "w300";

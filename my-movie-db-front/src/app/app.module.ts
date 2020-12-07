@@ -8,13 +8,15 @@ import { SearchComponent } from './components/search/search.component';
 import { MyAccountComponent } from './components/my-account/my-account.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyMovieDbService } from './services/my-movie-db.service';
+import { MovieComponent } from './components/movie/movie.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     SearchComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

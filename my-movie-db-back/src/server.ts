@@ -34,9 +34,15 @@ export default class Server {
         });
 
         // Routes movieDb
-        app.get('/moviedb/trending', (req, res) => {
+        app.get('/moviedb/trending', (req: Request, res: Response) => {
             MyMovieDb.getTrendingMovies('fr-FR').then(trendingMovies => {
                 res.send(trendingMovies);
+            });
+        });
+
+        app.get('/moviedb/movie/:id', (req: Request, res: Response) => {
+            MyMovieDb.getMovie(req.params.id, 'fr-FR').then(movie => {
+                res.send(movie);
             });
         });
 

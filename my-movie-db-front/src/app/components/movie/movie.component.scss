@@ -1,0 +1,55 @@
+.header {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    height: 70px;
+    line-height: 70px;
+    background-color: rgba(0,0,0,0.8);
+    position: fixed;
+    top: 0;
+    z-index: 999;
+
+    .header-logo {
+        color: #fff;
+        font-family: 'Montserrat', 'sans-serif';
+        float: left;
+        margin-left: 30px;
+    }
+
+    .header-menu {
+        float: right;
+        margin-right: 30px;
+
+        a {
+            margin-right: 15px;
+            color: #fff;
+            &:hover {
+                color: #3498db;
+            }
+        }
+    }
+}
+
+.banner {
+    margin-top: -30px;
+
+    .banner-image {
+        position: relative;
+    }
+
+    .banner-content {
+        position: absolute;
+        width: 100%;
+        text-align: center;
+        top: 30%;
+
+        h1,h2 {
+            color: #ffffff;
+        }
+    }
+}
+
+.heading-site {
+    text-align: center;
+    font-family: 'Montserrat', 'sans-serif';
+}
