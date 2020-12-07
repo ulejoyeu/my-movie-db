@@ -1,10 +1,10 @@
 <!-- header -->
 <div class="block">
     <header class="header">
-        <a href="index.html" class="header-logo">My Movie DB</a>
+        <a routerLink="" class="header-logo">My Movie DB</a>
         <nav class="header-menu">
-            <a href="search.html">Recherche</a>
-            <a href="compte.html">Mon compte</a>
+            <a routerLink="/recherche">Recherche</a>
+            <a routerLink="/mon-compte">Mon compte</a>
         </nav>
     </header>
 </div>
@@ -24,37 +24,9 @@
 <div class="block">
     <h2 class="subtitle heading-site">Les nouveautés</h2>
     <div class="container">
-        <div class="columns">
-            <div class="column">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81cKWyOAq5L._AC_SL1500_.jpg"
-                    alt="Tron legacy">
-            </div>
-            <div class="column">
-                <img src="https://fr.web.img2.acsta.net/pictures/20/08/03/12/15/2118693.jpg" alt="Tennet">
-            </div>
-            <div class="column">
-                <img src="https://fr.web.img5.acsta.net/pictures/19/04/03/14/15/2748213.jpg" alt="Détective Pikachu">
-            </div>
-            <div class="column">
-                <img src="https://fr.web.img3.acsta.net/pictures/19/02/22/16/14/0019120.jpg"
-                    alt="Dragon Ball Super Broly">
-            </div>
-        </div>
-        <div class="columns">
-            <div class="column">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/81zAldy61AL._AC_SY679_.jpg"
-                    alt="Alita - Battle Angel">
-            </div>
-            <div class="column">
-                <img src="https://images-na.ssl-images-amazon.com/images/I/71HyTegC0SL._AC_SL1200_.jpg"
-                    alt="Avengers Endgame">
-            </div>
-            <div class="column">
-                <img src="https://fr.web.img5.acsta.net/pictures/19/06/13/15/28/4575985.jpg"
-                    alt="Spider-man Far from home">
-            </div>
-            <div class="column">
-                <img src="https://fr.web.img6.acsta.net/pictures/20/03/03/12/19/2773827.jpg" alt="Tout simplement noir">
+        <div *ngFor="let movies of trendingMoviesSplit; let i = index" class="columns">
+            <div *ngFor="let movie of movies" class="column">
+                <img [src]="getMovieImageSrc(movie['poster_path'],'large')"  [alt]="movie.title">
             </div>
         </div>
     </div>
