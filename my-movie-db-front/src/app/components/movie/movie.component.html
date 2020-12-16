@@ -10,18 +10,7 @@
 </div>
 <!-- header -->
 
-<!-- banner -->
-<div class="block">
-    <div class="banner">
-        <img class="banner-image" src="assets/img/bg.jpg" alt="Image de projecteur">
-        <div class="banner-content">
-            <h1 class="title is-1">Bienvenue sur My Movie DB</h1>
-            <h2 class="subtitle">Retrouvez tous vos films préférés</h2>
-        </div>
-    </div>
-</div>
-<!-- banner -->
-<div *ngIf="movie" class="block">
+<div *ngIf="movie" class="block movie-content">
     <h2 class="subtitle heading-site">{{ movie.title }}</h2>
     <hr>
     <div class="container">
@@ -30,7 +19,7 @@
                 <img [src]="getMovieImageSrc('small')" [alt]="movie.title">
             </div>
             <div class="column">
-                <table class="table is-striped">
+                <table class="table is-striped is-hoverable">
                     <tbody>
                         <tr>
                             <th>Nom du film</th>

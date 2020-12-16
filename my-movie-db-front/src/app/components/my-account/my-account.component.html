@@ -10,8 +10,44 @@
 </div>
 <!-- header -->
 
-<!-- Mon profil -->
+<!-- login form -->
 <div class="block profile-content">
+    <h2 class="subtitle heading-site">Se connecter</h2>
+    <div class="container">
+        <form class="columns is-centered">
+            <div class="column is-half">
+                <hr>
+                <div class="field">
+                    <label class="label">Login</label>
+                    <div class="control">
+                        <input name="login" [(ngModel)]="login" class="input" type="text" placeholder="login">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">Mot de passe</label>
+                    <div class="control">
+                        <input name="password" [(ngModel)]="password" type="password" class="input" placeholder="Mot de passe">
+                    </div>
+                </div>
+                <hr>
+                <div class="field columns is-centered">
+                    <div class="control">
+                        <button (click)="logIn()" class="button is-success">Se connecter</button>
+                    </div>
+                </div><br>
+                <div class="field columns is-centered">
+                    <div class="control">
+                        <button (click)="logOut()" class="button is-danger">Se déconnecter</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- login form -->
+
+<!-- Mon profil -->
+<div *ngIf="user !== null" class="block profile-content">
     <h2 class="subtitle heading-site">Mon profil</h2>
     <div class="container">
         <div class="columns is-centered">
@@ -25,14 +61,12 @@
                             </figure>
                         </div>
                         <div class="media-content">
-                            <p class="title is-4">John Smith</p>
-                            <p class="subtitle is-6">@johnsmith</p>
+                            <p class="title is-4">{{ user.name }} {{ user.surname }}</p>
+                            <p class="subtitle is-6">@{{ user.login }}</p>
                         </div>
                     </div>
                     <div class="content">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora quisquam voluptas provident
-                        adipisci esse harum, ipsa ipsum iste recusandae blanditiis commodi. Quas deserunt earum quia
-                        veritatis, libero neque sint facilis!
+                        {{ user.description }}
                     </div>
                 </div>
             </div>
