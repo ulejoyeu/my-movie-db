@@ -34,4 +34,8 @@ export class UserService {
   details(): Observable<any> {
     return this.httpClient.get(`${this.url}:${this.port}/user/details`);
   } 
+
+  getMyMovies(): Observable<any> {
+    return this.httpClient.get(`${this.url}:${this.port}/user/movies`);
+  }
 }

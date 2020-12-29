@@ -78,4 +78,18 @@ exports.details = (req, res, next) => {
         }
     });
 };
+exports.movies = (req, res, next) => {
+    // TODO: get user movies
+    let db = mysql_1.default.createConnection(dbConfig);
+    const id = req['userId'];
+    db.query('SELECT m.* FROM movie m INNER JOIN user_movies um ON m.id = um.movie_id INNER JOIN user u ON u.id = um.user_id WHERE u.id = ?', [id], (err, rows, fields) => {
+        if (!err) {
+            const movies = rows;
+            res.status(200).json(movies);
+        }
+        else {
+            res.status(404).json({ message: 'Movies not found' });
+        }
+    });
+};
 exports.default = exports;

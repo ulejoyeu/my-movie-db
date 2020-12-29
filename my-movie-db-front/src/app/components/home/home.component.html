@@ -27,7 +27,7 @@
         <div *ngFor="let movies of trendingMoviesSplit; let i = index" class="columns">
             <div *ngFor="let movie of movies" class="column">
                 <a [routerLink]="['/','film',movie.id_mdb]">
-                    <img [src]="getMovieImageSrc(movie['poster_path'],'large')"  [alt]="movie.title">
+                    <img [src]="getMovieImageSrc(movie['poster_path'],'small')"  [alt]="movie.title">
                 </a>
             </div>
         </div>

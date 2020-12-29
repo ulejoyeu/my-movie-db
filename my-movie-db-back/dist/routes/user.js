@@ -11,4 +11,5 @@ router.post('/signup', user_1.default.signup);
 router.post('/login', user_1.default.login);
 // Routes protégées
 router.get('/details', auth_1.default, user_1.default.details);
+router.get('/movies', auth_1.default, user_1.default.movies);
 exports.default = router;

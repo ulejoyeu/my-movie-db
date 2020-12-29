@@ -9,5 +9,6 @@ router.post('/login', userCtrl.login);
 
 // Routes protégées
 router.get('/details', auth, userCtrl.details);
+router.get('/movies', auth, userCtrl.movies);
 
 export default router;
