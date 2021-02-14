@@ -1,0 +1,56 @@
+version: '3.3'
+
+networks:
+    app-tier:
+        driver: bridge
+
+services:
+    db:
+        image: mysql:5.7
+        restart: always
+        volumes:
+            - ./mysql:/var/lib/mysql
+        environment:
+            MYSQL_DATABASE: 'mymoviedb'
+            MYSQL_USER: 'root'
+            MYSQL_PASSWORD: 'root'
+            MYSQL_ROOT_PASSWORD: 'root'
+        networks:
+            - app-tier
+        ports:
+            - '3306:3306'
+        expose:
+            - '3306'
+
+    back:
+        image: node:12.4
+        working_dir: /usr/app
+        volumes:
+            - ./my-movie-db-back:/usr/app
+            - /usr/app/node_modules
+        ports:
+            - "3000:3000"
+        networks:
+            - app-tier
+        depends_on:
+            - db
+        command: bash -c "while !</dev/tcp/db/3306; do sleep 1; done; npm install && npm run dev"
+        expose:
+            - '3000'
+    
+    front:
+        image: node:12.4
+        working_dir: /usr/app
+        volumes:
+            - ./my-movie-db-front:/usr/app
+            - /usr/app/node_modules
+        ports:
+            - 4200:4200
+        depends_on:
+            - db
+            - back
+        expose:
+            - 4200
+        networks:
+            - app-tier
+        command: npm run start

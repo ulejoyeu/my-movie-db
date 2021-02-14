@@ -13,7 +13,7 @@ class Server {
         this.port = port;
         // Connexion bdd
         this.db = mysql_1.default.createConnection({
-            host: 'localhost',
+            host: 'db',
             port: 3306,
             user: 'root',
             password: 'root',
