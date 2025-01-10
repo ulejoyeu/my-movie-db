@@ -37,4 +37,4 @@ class MyMovieDb {
 }
 exports.MyMovieDb = MyMovieDb;
 MyMovieDb.movieDbUrl = "https://api.themoviedb.org/3";
-MyMovieDb.apiKey = "3964c252a9aff1920a5f962db576b066";
+MyMovieDb.apiKey = "SECRET_API_KEY";

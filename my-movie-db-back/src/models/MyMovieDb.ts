@@ -4,7 +4,7 @@ const request = require("request");
 
 export class MyMovieDb {
     static movieDbUrl: string = "https://api.themoviedb.org/3";
-    static apiKey: string = "3964c252a9aff1920a5f962db576b066";
+    static apiKey: string = "SECRET_API_KEY";
 
     static getTrendingMovies(language: string): Promise<Movie[]> {
         return new Promise((resolve, reject) => {
